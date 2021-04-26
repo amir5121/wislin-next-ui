@@ -1,6 +1,9 @@
 import Head from "next/head";
+import configurations from "../config";
 
-export default function Home() {
+export default function Home(props) {
+  const { user } = props;
+  console.log(user);
   return (
     <div>
       <Head>
@@ -9,11 +12,12 @@ export default function Home() {
       </Head>
 
       <main className="text-center">
-        <h1 className="text-9xl" style={{ transform: "rotate(-90deg)" }}>
-          S:
-        </h1>
+        <h1 className="text-9xl">S:</h1>
         <h1 className="text-xl">What should i learn next?</h1>
-        <a href="/users/auth/google/" className="btn--primary">
+        <a
+          href={configurations.baseUrl + "/api/user/auth/google/"}
+          className="btn--primary"
+        >
           Log in With Google
         </a>
         <p>
