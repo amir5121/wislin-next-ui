@@ -1,10 +1,10 @@
 import configurations from "../config";
 
-function sfetch(url = "", otherParams = {}) {
+function fetcher(url = "", otherParams = {}) {
   return fetch(configurations.baseUrl + url, {
     ...otherParams,
-    credentials: "same-origin",
-  });
+    credentials: "include",
+  }).then((res) => res.json());
 }
 
-module.exports = sfetch;
+module.exports = fetcher;
