@@ -1,21 +1,28 @@
 import Head from "next/head";
 import configurations from "../config";
+import Header from "../components/header/header";
+import useUser from "../swr/useUser";
 
 export default function Home(props) {
-  const { user } = props;
+  const { user, isLoading, isError, isAuthenticated } = useUser();
   console.log(props);
   return (
-    <div>
+    <>
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Header />
 
       <main className="text-center">
         <h1 className="text-9xl">S:</h1>
         <h1 className="text-xl">What should i learn next?</h1>
-        {user ? (
-          <p>Welcom {user.email}</p>
+        {isLoading ? (
+          <p>Loading</p>
+        ) : isError ? (
+          <p> something went wrong </p>
+        ) : isAuthenticated ? (
+          <p>hello there {user.email}</p>
         ) : (
           <a
             href={configurations.baseUrl + "/api/user/auth/google/"}
@@ -28,6 +35,6 @@ export default function Home(props) {
           Have you ever wondered what's best to learn to advance in your career?
         </p>
       </main>
-    </div>
+    </>
   );
 }
