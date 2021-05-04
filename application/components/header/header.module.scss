@@ -1,4 +1,8 @@
+@use 'styles/mixins';
+
 .header {
   justify-content: space-between;
   display: flex;
+  padding: mixins.spacing('xl');
+  //background-color: var(--primary-color);
 }

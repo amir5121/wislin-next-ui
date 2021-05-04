@@ -1,0 +1,15 @@
+@use "sass:string";
+@use "sass:math";
+
+@mixin desktop() {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+
+@function spacing($size) {
+  @if (str-index($size, 's')) {
+    @return math.log(1.8, string.length($size) + 1) * 1rem;
+  }
+  @return 1 + math.pow(string.length($size), 2) * 0.05rem
+}

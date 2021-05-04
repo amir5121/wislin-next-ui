@@ -1,13 +1,12 @@
 import style from "./header.module.scss";
 import useUser from "../../swr/useUser";
+import Button from "../button/button";
 
 export default function Header() {
   const { user, isLoading, isError, isAuthenticated } = useUser();
 
   return (
-    <header
-      className={"flex justify-between p-4 bg-indigo-500 bg-gradient-to-r"}
-    >
+    <header className={style.header}>
       <span>S:</span>
       <span>What should i learn next</span>
       {isLoading ? (
@@ -15,7 +14,7 @@ export default function Header() {
       ) : isAuthenticated ? (
         <span>{user.email}</span>
       ) : (
-        <button>Login/Signup</button>
+        <Button>Login/Signup</Button>
       )}
     </header>
   );

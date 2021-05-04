@@ -24,16 +24,17 @@ export default function Home(props) {
         ) : isAuthenticated ? (
           <p>hello there {user.email}</p>
         ) : (
-          <a
-            href={configurations.baseUrl + "/api/user/auth/google/"}
-            className="btn--primary"
-          >
+          <a href={configurations.baseUrl + "/api/user/auth/google/"}>
             Log in With Google
           </a>
         )}
         <p>
           Have you ever wondered what's best to learn to advance in your career?
         </p>
+        <div className="input">
+          <input className="input__input" placeholder=" " />
+          <label className="input__label">Email Address</label>
+        </div>
       </main>
     </>
   );

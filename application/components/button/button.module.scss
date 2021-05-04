@@ -1,0 +1,35 @@
+@use 'styles/variables';
+
+.button {
+  background-size: 220%;
+  box-shadow: 0 .2em .3em rgba(0, 0, 0, 0.15);
+  color: #3363ff;
+  background-color: transparent;
+  background-position: 100%;
+  border: 3px solid var(--primary-color);
+  text-transform: uppercase;
+  padding: 0.7rem variables.$xxxl;
+  border-radius: 3px;
+  font-weight: 900;
+  cursor: pointer;
+  letter-spacing: 2px;
+  background-image: linear-gradient(
+                  110deg,
+                  var(--primary-color) 0%,
+                  var(--primary-color) 50%,
+                  transparent 50%,
+                  transparent 100%
+  );
+  font-size: 0.9rem;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 .3em rgba(0, 0, 0, 0.25);
+    background-position: 0;
+    color: #fff;
+  }
+
+  &:active {
+    transform: translateY(-1px);
+  }
+}
